@@ -1,0 +1,229 @@
+CORESW1#sh run
+Building configuration...
+
+Current configuration : 4235 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname CORESW1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$2w9G$eLd7k6.moo4PZATxGKtzo0
+!
+!
+!
+no aaa new-model
+switch 1 provision ws-c3750v2-24ts
+system mtu routing 1536
+ip routing
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/3
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/4
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/5
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/6
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/7
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/8
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/9
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/10
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/11
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/12
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/13
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/14
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/15
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/16
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/17
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/18
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/19
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/20
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/21
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/22
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 30,100,300
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/1
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/2
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan10
+ ip address 10.3.10.60 255.255.255.192
+ standby 1 ip 10.3.10.62
+ standby 1 priority 110
+ standby 1 preempt
+!
+interface Vlan20
+ ip address 10.3.20.252 255.255.252.0
+ standby 2 ip 10.3.20.254
+ standby 2 priority 110
+ standby 2 preempt
+!
+interface Vlan30
+ ip address 217.3.160.252 255.255.255.0
+ standby 3 ip 217.3.160.254
+ standby 3 priority 110
+ standby 3 preempt
+!
+interface Vlan99
+ ip address 10.3.99.252 255.255.255.0
+ standby 9 ip 10.3.99.254
+ standby 9 priority 110
+ standby 9 preempt
+!
+interface Vlan100
+ ip address 10.3.254.2 255.255.255.252
+!
+ip default-gateway 10.3.254.1
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.3.254.1
+ip http server
+ip http secure-server
+!
+!
+ip sla enable reaction-alerts
+!
+!
+!
+line con 0
+line vty 5 15
+!
+end

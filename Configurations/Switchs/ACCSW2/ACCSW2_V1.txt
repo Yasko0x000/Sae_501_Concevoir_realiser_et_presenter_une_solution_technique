@@ -1,0 +1,271 @@
+! Last configuration change at 01:45:16 UTC Wed Mar 30 2011
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname ACCSW2
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 4 g1rTD89b38NIXbGJse.zLc7Cega1TBTlKQNvYDh9Qo6
+!
+no aaa new-model
+switch 1 provision ws-c2960s-48fpd-l
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0
+ no ip address
+!
+interface GigabitEthernet1/0/1
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+!
+interface GigabitEthernet1/0/3
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security maximum 3
+ switchport port-security
+!
+interface GigabitEthernet1/0/4
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security maximum 3
+ switchport port-security
+!
+interface GigabitEthernet1/0/5
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security maximum 3
+ switchport port-security
+!
+interface GigabitEthernet1/0/6
+ switchport access vlan 99
+ switchport mode access
+ switchport port-security maximum 3
+ switchport port-security
+!
+interface GigabitEthernet1/0/7
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/8
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/9
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/10
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/11
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/12
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/13
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/14
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/15
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/16
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/17
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/18
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/19
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/20
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/21
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/22
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/23
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/24
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/25
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/26
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/27
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/28
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/29
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/30
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/31
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/32
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/33
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/34
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/35
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/36
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/37
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/38
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/39
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/40
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/41
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/42
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/43
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/44
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/45
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/46
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/47
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/48
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/49
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/50
+ switchport mode access
+ shutdown
+!
+interface TenGigabitEthernet1/0/1
+!
+interface TenGigabitEthernet1/0/2
+!
+interface Vlan1
+ no ip address
+!
+ip http server
+ip http secure-server
+!
+!
+!
+!
+line con 0
+line vty 5 15
+!
+end

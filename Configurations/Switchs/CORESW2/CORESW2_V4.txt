@@ -1,0 +1,277 @@
+CORESW2#sh run
+Building configuration...
+
+Current configuration : 6527 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname CORESW2
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$.p0T$X91MCGCpQX33eUYXFKk/C0
+!
+!
+!
+no aaa new-model
+switch 1 provision ws-c3750v2-24ts
+system mtu routing 1536
+ip routing
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/3
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,300,666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface FastEthernet1/0/4
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/5
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/6
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/7
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/8
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/9
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/10
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/11
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/12
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/13
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/14
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/15
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/16
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/17
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/18
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/19
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/20
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/21
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/22
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface FastEthernet1/0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 30,200,300
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,99,666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/1
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/2
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ ip address 10.3.10.61 255.255.255.192
+ standby 1 ip 10.3.10.62
+ standby 1 preempt
+!
+interface Vlan20
+ ip address 10.3.20.253 255.255.252.0
+ standby 2 ip 10.3.20.254
+ standby 2 preempt
+!
+interface Vlan30
+ ip address 217.3.160.253 255.255.255.0
+ standby 3 ip 217.3.160.254
+ standby 3 preempt
+!
+interface Vlan99
+ ip address 10.3.99.253 255.255.255.0
+ standby 9 ip 10.3.99.254
+ standby 9 preempt
+!
+interface Vlan200
+ ip address 10.3.254.18 255.255.255.252
+!
+ip default-gateway 10.3.254.17
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.3.254.17
+ip http server
+ip http secure-server
+!
+!
+!
+snmp-server community supervision RO
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps eigrp
+snmp-server enable traps ospf state-change
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf retransmit
+snmp-server enable traps ospf lsa
+snmp-server enable traps ospf cisco-specific state-change nssa-trans-change
+snmp-server enable traps ospf cisco-specific state-change shamlink interface-old
+snmp-server enable traps ospf cisco-specific state-change shamlink neighbor
+snmp-server enable traps ospf cisco-specific errors
+snmp-server enable traps ospf cisco-specific retransmit
+snmp-server enable traps ospf cisco-specific lsa
+snmp-server enable traps cluster
+snmp-server enable traps fru-ctrl
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps power-ethernet group 1-9
+snmp-server enable traps power-ethernet police
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps stackwise
+snmp-server enable traps license
+snmp-server enable traps bgp
+snmp-server enable traps cef resource-failure peer-state-change peer-fib-state-change inconsistency
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps event-manager
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps isis
+snmp-server enable traps msdp
+snmp-server enable traps pim neighbor-change rp-mapping-change invalid-pim-message
+snmp-server enable traps energywise
+snmp-server enable traps vstack
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps rtr
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+snmp-server host 10.3.99.1 supervision
+!
+!
+line con 0
+line vty 5 15
+!
+end
